@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls.conf import re_path
 
 from core.views import WeatherAPIList
 
 
 urlpatterns = [
-    path('weather/', WeatherAPIList.as_view(), name='get-weather'),
+    re_path('^weather/(?P<name>.+)/$', WeatherAPIList.as_view(), name='get-weather'),
 ]
