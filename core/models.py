@@ -10,19 +10,8 @@ class TrackableDate(models.Model):
         abstract = True
 
 
-class City(models.Model):
-    title = models.CharField(_('title'), max_length=255)
-
-    class Meta:
-        verbose_name = _('city')
-        verbose_name_plural = _('cities')
-
-    def __str__(self):
-        return '[{}] {}'.format(self.pk, self.title)
-
-
 class Weather(TrackableDate):
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    city = models.CharField(max_length=255)
     main = models.CharField(_('main'), max_length=255)
     description = models.TextField(_('description'), blank=True, null=True)
     temp_c = models.FloatField(_('temp_c'), default=0)

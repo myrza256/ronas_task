@@ -4,5 +4,5 @@ from core.views import WeatherAPIList
 
 
 urlpatterns = [
-    re_path('^weather/(?P<name>.+)/$', WeatherAPIList.as_view(), name='get-weather'),
+    re_path('^weather/', WeatherAPIList.as_view(), name='get-weather'),
 ]
